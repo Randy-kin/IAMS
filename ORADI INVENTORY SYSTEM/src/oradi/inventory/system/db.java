@@ -6,14 +6,13 @@ package oradi.inventory.system;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 /**
  *
  * @author olive
  */
 public class db {
-    public static Connection mycon() throws SQLException{
+    public static Connection mycon() throws Exception{
       Connection con=null;
       
       try{
@@ -22,7 +21,7 @@ public class db {
           con = DriverManager.getConnection("jdbc:mysql://localhost/store","root","");
           return con;
           
-      }catch (ClassNotFoundException | SQLException e){
+      }catch (Exception e){
           System.out.println(e);
           return null;
           
