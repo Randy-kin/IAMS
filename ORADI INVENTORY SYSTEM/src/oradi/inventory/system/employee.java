@@ -317,7 +317,7 @@ public class employee extends javax.swing.JPanel {
             s.executeUpdate("INSERT INTO employee (Employee_name,Tp_number) VALUES('"+Name+"','"+tp+"') ");
             JOptionPane.showMessageDialog(null,"Data Saved");
             
-        }catch (SQLException e){
+        }catch (Exception e){
             System.out.println(e);
             
         }
@@ -340,7 +340,7 @@ public class employee extends javax.swing.JPanel {
                 jTextField1.setText(rs.getString("Tp_number"));
                 
             }
-        }catch(SQLException e){
+        }catch(Exception e){
             System.out.println(e);
             
             
@@ -360,7 +360,7 @@ public class employee extends javax.swing.JPanel {
             Statement s=db.mycon().createStatement();
             s.executeUpdate("UPDATE employee SET Employee_name='"+NewName+"',Tp_number='"+NewTp+"'WHERE eid='"+id+"' ");
              JOptionPane.showMessageDialog(null,"Data Updated");
-        }catch(SQLException e){
+        }catch(Exception e){
              System.out.println(e);
         }
         
@@ -379,7 +379,7 @@ public class employee extends javax.swing.JPanel {
             
              JOptionPane.showMessageDialog(null,"Data Deleted");
             
-        }catch(SQLException e){
+        }catch(Exception e){
             
         }
         tb_load();
@@ -424,7 +424,7 @@ public class employee extends javax.swing.JPanel {
                 
             }
             
-        }catch(SQLException e){ 
+        }catch(Exception e){ 
              tb_load(); 
         }
         

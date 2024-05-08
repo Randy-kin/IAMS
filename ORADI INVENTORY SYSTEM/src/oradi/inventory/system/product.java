@@ -431,7 +431,7 @@ public void tb_load(){
             
             
             
-        }catch(SQLException e){
+        }catch(Exception e){
             System.out.println(e);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -551,7 +551,7 @@ public void tb_load(){
                 
             }
             
-        }catch(SQLException e){ 
+        }catch(Exception e){ 
              tb_load(); 
         }
     }//GEN-LAST:event_jTextField7KeyReleased

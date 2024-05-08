@@ -17,9 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class customer extends javax.swing.JPanel {
 
-    /**
-     * Creates new form custo
-     */
+    
     public customer() {
         initComponents();
         tb_load();
@@ -317,7 +315,7 @@ public class customer extends javax.swing.JPanel {
             s.executeUpdate("INSERT INTO customer(Name,Tp_Number) VALUES('"+Name+"','"+tp+"') ");
             JOptionPane.showMessageDialog(null,"Data Saved");
             
-        }catch (SQLException e){
+        }catch (Exception e){
             System.out.println(e);
             
         }
@@ -340,7 +338,7 @@ public class customer extends javax.swing.JPanel {
                 jTextField1.setText(rs.getString("Tp_Number"));
                 
             }
-        }catch(SQLException e){
+        }catch(Exception e){
             System.out.println(e);
             
             
@@ -360,7 +358,7 @@ public class customer extends javax.swing.JPanel {
             Statement s=db.mycon().createStatement();
             s.executeUpdate("UPDATE customer SET Name='"+NewName+"',Tp_Number='"+NewTp+"'WHERE CustomerID='"+id+"' ");
              JOptionPane.showMessageDialog(null,"Data Updated");
-        }catch(SQLException e){
+        }catch(Exception e){
              System.out.println(e);
         }
         
@@ -379,7 +377,7 @@ public class customer extends javax.swing.JPanel {
             
              JOptionPane.showMessageDialog(null,"Data Deleted");
             
-        }catch(SQLException e){
+        }catch(Exception e){
             
         }
         tb_load();
@@ -424,7 +422,7 @@ public class customer extends javax.swing.JPanel {
                 
             }
             
-        }catch(SQLException e){ 
+        }catch(Exception e){ 
              tb_load(); 
         }
         
