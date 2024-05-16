@@ -4,13 +4,18 @@
  */
 package oradi.inventory.system;
 
+
 import java.awt.HeadlessException;
+
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+
+
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,6 +29,7 @@ public class sales extends javax.swing.JPanel {
      * 
      */
     
+
     public static String cus_id="0";
     
     public  void tot(){
@@ -81,6 +87,7 @@ public class sales extends javax.swing.JPanel {
             
             
         }
+
         try{
             
             //load invoice number
@@ -102,6 +109,7 @@ public class sales extends javax.swing.JPanel {
         i++;
         jLabel2.setText(String.valueOf(i));
         
+=======
         
     } 
 
@@ -142,8 +150,11 @@ public class sales extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+
+
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -582,6 +593,7 @@ public class sales extends javax.swing.JPanel {
         }
         jLabel10.setText(Double.toString(total)); 
         
+
         //total quantity
         
         int numofroes=jTable1.getRowCount();
@@ -593,7 +605,7 @@ public class sales extends javax.swing.JPanel {
         }
         jLabel17.setText(Double.toString(totalqty));
         
-        
+     
     }
     
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -662,6 +674,7 @@ public class sales extends javax.swing.JPanel {
         tot();
         
     }//GEN-LAST:event_jTextField2KeyReleased
+
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -760,6 +773,7 @@ public class sales extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -774,8 +788,10 @@ public class sales extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
