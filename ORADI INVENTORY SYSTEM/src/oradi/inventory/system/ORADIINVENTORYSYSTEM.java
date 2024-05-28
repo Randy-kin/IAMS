@@ -4,17 +4,21 @@
  */
 package oradi.inventory.system;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 /**
  *
  * @author Randy_PC
  */
 public class ORADIINVENTORYSYSTEM {
-
-    /**
-     * @param args the command line arguments
-     */
+    
+    
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
-}
+ }
+  

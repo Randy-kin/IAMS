@@ -21,11 +21,14 @@ public class db {
           con = DriverManager.getConnection("jdbc:mysql://localhost/store","root","");
           return con;
           
-      }catch (Exception e){
+      }catch (ClassNotFoundException e){
           System.out.println(e);
           return null;
           
       }
       
+ 
     }
+    
 }
+ 

@@ -4,11 +4,18 @@
  */
 package oradi.inventory.system;
 
+
+import java.awt.HeadlessException;
+
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
+
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,7 +26,11 @@ public class sales extends javax.swing.JPanel {
 
     /**
      * Creates new form sales
+     * 
      */
+    
+
+    public static String cus_id="0";
     
     public  void tot(){
         Double paid=Double.valueOf(jTextField2.getText());
@@ -76,6 +87,29 @@ public class sales extends javax.swing.JPanel {
             
             
         }
+
+        try{
+            
+            //load invoice number
+            Statement s=db.mycon().createStatement();
+            ResultSet rs=s.executeQuery("SELECT * FROM extra WHERE exid=1");
+            
+            if(rs.next()){
+                
+                jLabel2.setText(rs.getString("val"));
+                
+                
+            }
+            
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        
+        int i = Integer.valueOf(jLabel2.getText());
+        i++;
+        jLabel2.setText(String.valueOf(i));
+        
+
         
     } 
 
@@ -116,6 +150,11 @@ public class sales extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+
+
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -195,6 +234,11 @@ public class sales extends javax.swing.JPanel {
         jComboBox1.setBackground(new java.awt.Color(153, 153, 153));
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jComboBox2.setBackground(new java.awt.Color(153, 153, 153));
         jComboBox2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -341,6 +385,12 @@ public class sales extends javax.swing.JPanel {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel16.setText("Total Qty:");
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel17.setText("00");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -350,6 +400,10 @@ public class sales extends javax.swing.JPanel {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -360,7 +414,9 @@ public class sales extends javax.swing.JPanel {
                 .addContainerGap(16, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17))
                 .addGap(130, 130, 130))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -444,6 +500,11 @@ public class sales extends javax.swing.JPanel {
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton4.setText("Pay & Print");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -532,6 +593,19 @@ public class sales extends javax.swing.JPanel {
         }
         jLabel10.setText(Double.toString(total)); 
         
+
+        //total quantity
+        
+        int numofroes=jTable1.getRowCount();
+        double totalqty=0;
+        for(int i=0;i<numofroe;i++){
+            double values=Double.valueOf(jTable1.getValueAt(1,3).toString());
+            
+            totalqty +=values;
+        }
+        jLabel17.setText(Double.toString(totalqty));
+        
+     
     }
     
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -602,6 +676,104 @@ public class sales extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField2KeyReleased
 
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+            DefaultTableModel dt=(DefaultTableModel)jTable1.getModel();
+            int rc=dt.getRowCount();
+            
+            for(int i=0 ;i<rc; i++){
+                String inid=dt.getValueAt(i, 0).toString();
+                String P_name=dt.getValueAt(i, 1).toString();
+                String bar_code=dt.getValueAt(i, 2).toString();
+                String qty=dt.getValueAt(i, 3).toString();
+                String unit_price=dt.getValueAt(i, 4).toString();
+                String total_price=dt.getValueAt(i, 5).toString();
+                
+                Statement s=db.mycon().createStatement();
+                s.executeUpdate("INSERT INTO cart(INID,Product_Name,Bar_code,qty,Unit_Price,Total_Price) VALUES('"+inid+"','"+P_name+"','"+bar_code+"','"+qty+"','"+unit_price+"','"+total_price+"')");
+                
+                
+                
+            }
+            
+            JOptionPane.showMessageDialog(null,"Data saved");
+            
+        }catch(Exception e){
+            System.out.println(e);
+            
+        }
+        
+        try{
+           
+            String inid=jLabel2.getText();
+            String cname=jComboBox1.getSelectedItem().toString();
+            String totalqty=jLabel17.getText();
+            String total_price=jLabel14.getText();
+            String balance=jLabel12.getText();
+            
+            Double paid=Double.valueOf(jLabel10.getText());
+            Double pid=Double.valueOf(jTextField2.getText());
+            String status=null;
+            
+            if(pid.equals(0.0)){
+                status="UNPAID";
+            }else if(paid>pid){
+                status="Partial";
+            }else if(paid<pid){
+                status="Paid";
+                
+            }else{
+                status="Paid";
+            }
+            
+                    
+            Statement ss=db.mycon().createStatement();
+            ss.executeUpdate("INSERT INTO sales(INID,Cid,Customer_name,Total_Qyt,Total_bill,Status,Balance) VALUES('"+inid+"','"+cus_id+"','"+cname+"','"+totalqty+"','"+total_price+"','"+status+"','"+balance+"')");
+            
+        }catch(Exception e){
+            System.out.println(e);
+            
+        }
+        
+        try{
+            String id=jLabel2.getText();
+            
+            Statement sp=db.mycon().createStatement();
+            sp.executeUpdate("UPDATE extra  SET val='"+id+"'WHERE exid=1");
+            
+        }catch(Exception e){
+            System.out.println(e);
+            
+        }
+      
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        //get cid
+        
+         String name=jComboBox1.getSelectedItem().toString();
+         try{
+             Statement s = db.mycon().createStatement();
+             ResultSet rs=s.executeQuery("SELECT cid,customer_name FROM customer WHERE customer_name='"+name+"')");
+             
+             if(rs.next()){
+                 cus_id=(rs.getString("cid"));
+                   
+             }
+             
+             
+         }catch(Exception e){
+             
+         }
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -616,6 +788,10 @@ public class sales extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
