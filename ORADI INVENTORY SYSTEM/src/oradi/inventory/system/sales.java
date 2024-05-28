@@ -109,6 +109,7 @@ public class sales extends javax.swing.JPanel {
         i++;
         jLabel2.setText(String.valueOf(i));
         
+
         
     } 
 
@@ -756,7 +757,7 @@ public class sales extends javax.swing.JPanel {
         
          String name=jComboBox1.getSelectedItem().toString();
          try{
-             Statement s=db.mycon().createStatement();
+             Statement s = db.mycon().createStatement();
              ResultSet rs=s.executeQuery("SELECT cid,customer_name FROM customer WHERE customer_name='"+name+"')");
              
              if(rs.next()){

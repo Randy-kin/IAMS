@@ -372,6 +372,11 @@ public class customer extends javax.swing.JPanel {
         String Contact_person=jTextField7.getText();
         String Mobile=jTextField8.getText();
         
+        if (Name.isEmpty() || tp.isEmpty() ){
+            JOptionPane.showMessageDialog(this, "Please enter all fields","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         try{
             
             Statement s = db.mycon().createStatement();
@@ -383,6 +388,10 @@ public class customer extends javax.swing.JPanel {
             System.out.println(e);
             
         }
+        jTextField2.setText("");
+        jTextField1.setText("");
+        
+        
         
         tb_load();
         
@@ -393,6 +402,11 @@ public class customer extends javax.swing.JPanel {
         // The search database
         
         String search=jTextField3.getText();
+        if (search.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please enter an ID","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         try{
             Statement s = db.mycon().createStatement();
             ResultSet rs = s.executeQuery("SELECT * FROM customer WHERE  CustomerID='"+search+"' ");
@@ -425,6 +439,10 @@ public class customer extends javax.swing.JPanel {
         String Contact_person=jTextField7.getText();
         String Mobile=jTextField8.getText();
         
+        if (NewName.isEmpty() || NewTp.isEmpty() || id.isEmpty() ){
+            JOptionPane.showMessageDialog(this, "Please enter all fields","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try{
             
             Statement s=db.mycon().createStatement();
@@ -433,6 +451,9 @@ public class customer extends javax.swing.JPanel {
         }catch(Exception e){
              System.out.println(e);
         }
+        jTextField2.setText("");
+        jTextField1.setText("");
+        jTextField3.setText("");
         
         tb_load();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -441,10 +462,17 @@ public class customer extends javax.swing.JPanel {
         // TODO add your handling code here:
         //the delete option
         String id=jTextField3.getText();
+        String Name = jTextField2.getText();
+        String tp = jTextField1.getText();
+        
+         if (id.isEmpty() ){
+            JOptionPane.showMessageDialog(this, "Please enter an ID","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
         try{
             
-            Statement s=db.mycon().createStatement();
+            Statement s = db.mycon().createStatement();
             s.executeUpdate("DELETE FROM customer WHERE CustomerID='"+id+"'");
             
              JOptionPane.showMessageDialog(null,"Data Deleted");
@@ -452,6 +480,9 @@ public class customer extends javax.swing.JPanel {
         }catch(Exception e){
             
         }
+        jTextField3.setText("");
+        jTextField2.setText("");
+        jTextField1.setText("");
         tb_load();
     }//GEN-LAST:event_jButton4ActionPerformed
 
