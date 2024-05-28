@@ -7,7 +7,7 @@ package oradi.inventory.system;
 
 public class HOME extends javax.swing.JFrame {
     
-    JpanelLoader Jpload = new JpanelLoader();
+    JpanelLoader Jpload = new JpanelLoader();  
     
     public HOME() {
         initComponents(); 
@@ -21,6 +21,7 @@ public class HOME extends javax.swing.JFrame {
     private void initComponents() {
 
         Home_btn_grp = new javax.swing.ButtonGroup();
+        jToggleButton7 = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
@@ -28,10 +29,19 @@ public class HOME extends javax.swing.JFrame {
         jToggleButton4 = new javax.swing.JToggleButton();
         jToggleButton5 = new javax.swing.JToggleButton();
         jToggleButton6 = new javax.swing.JToggleButton();
-        jToggleButton7 = new javax.swing.JToggleButton();
         jToggleButton8 = new javax.swing.JToggleButton();
         panel_load = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+
+        Home_btn_grp.add(jToggleButton7);
+        jToggleButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jToggleButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/customer.png"))); // NOI18N
+        jToggleButton7.setText("CUSTOMERS");
+        jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton7ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,15 +107,15 @@ public class HOME extends javax.swing.JFrame {
             }
         });
 
-        Home_btn_grp.add(jToggleButton7);
-        jToggleButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jToggleButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/customer.png"))); // NOI18N
-        jToggleButton7.setText("CUSTOMERS");
-
         Home_btn_grp.add(jToggleButton8);
         jToggleButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jToggleButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/reports.png"))); // NOI18N
         jToggleButton8.setText("REPORTS ");
+        jToggleButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -115,7 +125,6 @@ public class HOME extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -141,9 +150,7 @@ public class HOME extends javax.swing.JFrame {
                 .addComponent(jToggleButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton7)
-                .addContainerGap(320, Short.MAX_VALUE))
+                .addContainerGap(353, Short.MAX_VALUE))
         );
 
         panel_load.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -205,7 +212,7 @@ public class HOME extends javax.swing.JFrame {
         // supplier loading
         supplier sup  = new supplier(); 
         Jpload.jPanelLoader(panel_load, sup);
-        
+            
         
        
         
@@ -244,6 +251,18 @@ public class HOME extends javax.swing.JFrame {
         invoice inv = new invoice();
         Jpload.jPanelLoader(panel_load, inv);
     }//GEN-LAST:event_jToggleButton5ActionPerformed
+
+    private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
+        // TODO add your handling code here:
+        reports report = new reports();
+        Jpload.jPanelLoader(panel_load, report);
+    }//GEN-LAST:event_jToggleButton8ActionPerformed
+
+    private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
+        // TODO add your handling code here:
+       
+    
+    }//GEN-LAST:event_jToggleButton7ActionPerformed
 
     /**
      * @param args the command line argument
