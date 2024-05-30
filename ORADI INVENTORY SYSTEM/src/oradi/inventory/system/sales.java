@@ -109,7 +109,6 @@ public class sales extends javax.swing.JPanel {
         i++;
         jLabel2.setText(String.valueOf(i));
         
-=======
         
     } 
 
