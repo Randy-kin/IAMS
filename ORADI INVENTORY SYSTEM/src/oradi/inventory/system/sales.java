@@ -150,11 +150,8 @@ public class sales extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-
-
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -250,7 +247,12 @@ public class sales extends javax.swing.JPanel {
         });
 
         jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jTextField1.setText("0");
+        jTextField1.setText("1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField1KeyReleased(evt);
@@ -573,7 +575,7 @@ public class sales extends javax.swing.JPanel {
 
     public void cal_total(){
         
-        Double qt=Double.valueOf(jTextField1.getText());
+        Double qt=jTextField1.getText().isEmpty() ? 0.0 : Double.valueOf(jTextField1.getText());
         Double price=Double.valueOf(jLabel7.getText());
         Double total;
         
@@ -585,21 +587,22 @@ public class sales extends javax.swing.JPanel {
     }
     
     public void cart_total(){
-        int numofroe=jTable1.getRowCount();
+        int numofroe = jTable1.getRowCount();
         double total=0;
         for(int i=0;i<numofroe;i++){
-            double value=Double.valueOf(jTable1.getValueAt(1,5).toString());
+            double value=Double.valueOf(jTable1.getValueAt(i,5).toString());
             total +=value;
         }
+       
         jLabel10.setText(Double.toString(total)); 
         
 
         //total quantity
         
-        int numofroes=jTable1.getRowCount();
+        //int numofroes=jTable1.getRowCount();
         double totalqty=0;
         for(int i=0;i<numofroe;i++){
-            double values=Double.valueOf(jTable1.getValueAt(1,3).toString());
+            double values=Double.valueOf(jTable1.getValueAt(i,3).toString());
             
             totalqty +=values;
         }
@@ -641,6 +644,10 @@ public class sales extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if(jTextField1.getText().isEmpty()){ 
+             JOptionPane.showMessageDialog(this, "Please enter Quantity ","Try again",JOptionPane.ERROR_MESSAGE);
+             return;
+        }
         DefaultTableModel dt=(DefaultTableModel)jTable1.getModel();
         Vector v=new Vector();
         
@@ -652,6 +659,9 @@ public class sales extends javax.swing.JPanel {
         v.add(jLabel14.getText());
         
         dt.addRow(v);
+        
+        //checking quantity
+        
         
         cart_total();
         tot();
@@ -715,22 +725,22 @@ public class sales extends javax.swing.JPanel {
             
             Double paid=Double.valueOf(jLabel10.getText());
             Double pid=Double.valueOf(jTextField2.getText());
-            String status=null;
+            String Status=null;
             
             if(pid.equals(0.0)){
-                status="UNPAID";
+                Status="UNPAID";
             }else if(paid>pid){
-                status="Partial";
+                Status="Partial";
             }else if(paid<pid){
-                status="Paid";
+                Status="Paid";
                 
             }else{
-                status="Paid";
+                Status="Paid";
             }
             
                     
             Statement ss=db.mycon().createStatement();
-            ss.executeUpdate("INSERT INTO sales(INID,Cid,Customer_name,Total_Qyt,Total_bill,Status,Balance) VALUES('"+inid+"','"+cus_id+"','"+cname+"','"+totalqty+"','"+total_price+"','"+status+"','"+balance+"')");
+            ss.executeUpdate("INSERT INTO sales(INID,Cid,Customer_name,Total_Qyt,Total_bill,Status,Balance) VALUES('"+inid+"','"+cus_id+"','"+cname+"','"+totalqty+"','"+total_price+"','"+Status+"','"+balance+"')");
             
         }catch(Exception e){
             System.out.println(e);
@@ -761,7 +771,7 @@ public class sales extends javax.swing.JPanel {
              ResultSet rs=s.executeQuery("SELECT cid,customer_name FROM customer WHERE customer_name='"+name+"')");
              
              if(rs.next()){
-                 cus_id=(rs.getString("cid"));
+                 cus_id =(rs.getString("cid"));
                    
              }
              
@@ -771,6 +781,10 @@ public class sales extends javax.swing.JPanel {
          }
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
 
@@ -788,10 +802,8 @@ public class sales extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

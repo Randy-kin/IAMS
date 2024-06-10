@@ -38,17 +38,17 @@ public class invoice extends javax.swing.JPanel {
             
             while (rs.next()){
                 
-               Vector vector = new Vector();
-               vector.add(rs.getString(1));
-               vector.add(rs.getString(2));
-               vector.add(rs.getString(3));
-               vector.add(rs.getString(4));
-               vector.add(rs.getString(5));
-               vector.add(rs.getString(6));
-               vector.add(rs.getString(7));
-               vector.add(rs.getString(8));
+               Vector v = new Vector();
+               v.add(rs.getString(1));
+               v.add(rs.getString(2));
+               v.add(rs.getString(3));
+               v.add(rs.getString(4));
+               v.add(rs.getString(5));
+               v.add(rs.getString(6));
+               v.add(rs.getString(7));
+               v.add(rs.getString(8));
                
-               dt.addRow(vector);
+               dt.addRow(v);
             }
             
             
