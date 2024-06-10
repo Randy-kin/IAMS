@@ -21,7 +21,11 @@ public class HOME extends javax.swing.JFrame {
     private void initComponents() {
 
         Home_btn_grp = new javax.swing.ButtonGroup();
+
         jToggleButton7 = new javax.swing.JToggleButton();
+
+        jMenuItem6 = new javax.swing.JMenuItem();
+
         jPanel1 = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
@@ -30,8 +34,21 @@ public class HOME extends javax.swing.JFrame {
         jToggleButton5 = new javax.swing.JToggleButton();
         jToggleButton6 = new javax.swing.JToggleButton();
         jToggleButton8 = new javax.swing.JToggleButton();
+        jToggleButton9 = new javax.swing.JToggleButton();
         panel_load = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+
+        jMenuItem6.setText("jMenuItem6");
 
         Home_btn_grp.add(jToggleButton7);
         jToggleButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -107,6 +124,18 @@ public class HOME extends javax.swing.JFrame {
             }
         });
 
+
+        Home_btn_grp.add(jToggleButton7);
+        jToggleButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jToggleButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/customer.png"))); // NOI18N
+        jToggleButton7.setText("CUSTOMER");
+        jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton7ActionPerformed(evt);
+            }
+        });
+
+
         Home_btn_grp.add(jToggleButton8);
         jToggleButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jToggleButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/reports.png"))); // NOI18N
@@ -114,6 +143,16 @@ public class HOME extends javax.swing.JFrame {
         jToggleButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton8ActionPerformed(evt);
+            }
+        });
+
+        Home_btn_grp.add(jToggleButton9);
+        jToggleButton9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jToggleButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/invo.png"))); // NOI18N
+        jToggleButton9.setText("GRN");
+        jToggleButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton9ActionPerformed(evt);
             }
         });
 
@@ -130,7 +169,8 @@ public class HOME extends javax.swing.JFrame {
                     .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -149,6 +189,8 @@ public class HOME extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jToggleButton9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButton8)
                 .addContainerGap(353, Short.MAX_VALUE))
         );
@@ -159,7 +201,7 @@ public class HOME extends javax.swing.JFrame {
         panel_load.setLayout(panel_loadLayout);
         panel_loadLayout.setHorizontalGroup(
             panel_loadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1235, Short.MAX_VALUE)
+            .addGap(0, 1251, Short.MAX_VALUE)
         );
         panel_loadLayout.setVerticalGroup(
             panel_loadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,12 +214,44 @@ public class HOME extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1456, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 66, Short.MAX_VALUE)
         );
+
+        jMenu1.setText("File");
+
+        jMenuItem1.setText("jMenuItem1");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("jMenuItem2");
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("jMenuItem3");
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("View");
+
+        jMenuItem4.setText("jMenuItem4");
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setText("jMenuItem5");
+        jMenu2.add(jMenuItem5);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Report");
+
+        jMenuItem7.setText("jMenuItem7");
+        jMenu3.add(jMenuItem7);
+
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,13 +259,13 @@ public class HOME extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panel_load, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(panel_load, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +276,7 @@ public class HOME extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panel_load, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -252,17 +326,27 @@ public class HOME extends javax.swing.JFrame {
         Jpload.jPanelLoader(panel_load, inv);
     }//GEN-LAST:event_jToggleButton5ActionPerformed
 
+
     private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
         // TODO add your handling code here:
         reports report = new reports();
         Jpload.jPanelLoader(panel_load, report);
     }//GEN-LAST:event_jToggleButton8ActionPerformed
+    // TODO add your handling code here:
+
 
     private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
         // TODO add your handling code here:
        
-    
+        
     }//GEN-LAST:event_jToggleButton7ActionPerformed
+
+    private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton9ActionPerformed
+        // TODO add your handling code here:
+        Grn st = new Grn();
+        Jpload.jPanelLoader(panel_load, st);
+    }//GEN-LAST:event_jToggleButton9ActionPerformed
+
 
     /**
      * @param args the command line argument
@@ -301,6 +385,17 @@ public class HOME extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Home_btn_grp;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JToggleButton jToggleButton1;
@@ -311,6 +406,7 @@ public class HOME extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;
     private javax.swing.JToggleButton jToggleButton8;
+    private javax.swing.JToggleButton jToggleButton9;
     private javax.swing.JPanel panel_load;
     // End of variables declaration//GEN-END:variables
 
