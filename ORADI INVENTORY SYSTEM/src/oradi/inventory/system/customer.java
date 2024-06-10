@@ -377,6 +377,11 @@ public class customer extends javax.swing.JPanel {
             return;
         }
         
+        if (Name.isEmpty() || tp.isEmpty() ){
+            JOptionPane.showMessageDialog(this, "Please enter all fields","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         try{
             
             Statement s = db.mycon().createStatement();
