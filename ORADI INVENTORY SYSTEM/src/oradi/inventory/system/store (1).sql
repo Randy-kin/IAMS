@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 27 mai 2024 à 12:00
+-- Généré le : lun. 10 juin 2024 à 14:03
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.1.25
 
@@ -92,27 +92,38 @@ INSERT INTO `cart` (`cartid`, `INID`, `Product_Name`, `Bar_code`, `Qty`, `Unit_P
 --
 
 CREATE TABLE `customer` (
-  `CustomerID` int(11) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  `Tp_Number` int(10) NOT NULL,
-  `ADDRESS` varchar(50) NOT NULL,
-  `TYPE` varchar(50) NOT NULL,
-  `CONTACT_PERSON` varchar(50) NOT NULL,
-  `MOBILE` varchar(50) NOT NULL
+  `cus_id` int(11) NOT NULL,
+  `Customer_Name` varchar(40) NOT NULL,
+  `T_PNumber` varchar(40) NOT NULL,
+  `BillingAddress` varchar(40) NOT NULL,
+  `ShipingAddress` varchar(40) NOT NULL,
+  `BankAccountNo` varchar(40) NOT NULL,
+  `City` varchar(40) NOT NULL,
+  `Person_Name` varchar(40) NOT NULL,
+  `PersonContact` varchar(40) NOT NULL,
+  `Person_TP` varchar(40) NOT NULL,
+  `PersonEmail` varchar(40) NOT NULL,
+  `PersonOnline` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `customer`
 --
 
-INSERT INTO `customer` (`CustomerID`, `Name`, `Tp_Number`, `ADDRESS`, `TYPE`, `CONTACT_PERSON`, `MOBILE`) VALUES
-(1, 'yuuu', 899, '', '', '', ''),
-(2, 'vgghgh', 567, '', '', '', ''),
-(3, 'ppoiu', 97, '', '', '', ''),
-(4, 'uuuu', 908, '', '', '', ''),
-(5, 'uuuu', 908, '', '', '', ''),
-(6, 'HELP', 899, 'il', 'uv', 'YOO', '67876'),
-(7, 'HELP', 899, 'POP', 'HZH', 'YOO', '67876');
+INSERT INTO `customer` (`cus_id`, `Customer_Name`, `T_PNumber`, `BillingAddress`, `ShipingAddress`, `BankAccountNo`, `City`, `Person_Name`, `PersonContact`, `Person_TP`, `PersonEmail`, `PersonOnline`) VALUES
+(1, 'gjhg', '0', 'hcvdfx', '', '0', '0', '0', '0', '0', '0', '0'),
+(2, 'gjhg', '0', '', 'France', 'BAN 231-511', 'France', 'John', 'TAt', '425-1236-265', 'matt@test.com', 'fbj'),
+(3, 'gjhg', '0', '', 'France', 'BAN 231-511', 'France', 'John', 'TAt', '425-1236-265', 'matt@test.com', 'fbj'),
+(4, 'gjhg', '0', '', 'France', 'BAN 231-511', 'France', 'John', 'TAt', '425-1236-265', 'matt@test.com', 'fbj'),
+(5, 'gjhg', '0', '', 'France', 'BAN 231-511', 'France', 'John', 'TAt', '425-1236-265', 'matt@test.com', 'fbj'),
+(6, 'gjhg', '0', 'ggg', 'France', 'BAN 231-511', 'France', 'John', 'TAt', '425-1236-265', 'matt@test.com', 'fbj'),
+(7, 'gjhg', '0', 'ggg', 'France', 'BAN 231-511', 'France', 'John', 'TAt', '425-1236-265', 'matt@test.com', 'fbj'),
+(8, 'gjhg', '0', 'ggg', 'France', 'BAN 231-511', 'France', 'John', 'TAt', '425-1236-265', 'matt@test.com', 'fbj'),
+(9, 'gjhg', '0', '', 'France', 'BAN 231-511', 'France', 'John', 'TAt', '425-1236-265', 'matt@test.com', 'fbj'),
+(10, 'gjhg', '0', '', 'France', 'BAN 231-511', 'France', 'John', 'TAt', '425-1236-265', 'matt@test.com', 'fbj'),
+(11, 'gjhg', '0', '', 'France', 'BAN 231-511', 'France', 'John', 'TAt', '425-1236-265', 'matt@test.com', 'fbj'),
+(12, 'gjhg', '0', '', 'France', 'BAN 231-511', 'France', 'John', 'TAt', '425-1236-265', 'matt@test.com', 'fbj'),
+(13, 'gjhg', '0', '', 'France', 'BAN 231-511', 'France', 'John', 'TAt', '425-1236-265', 'matt@test.com', 'fbj');
 
 -- --------------------------------------------------------
 
@@ -243,7 +254,7 @@ ALTER TABLE `cart`
 -- Index pour la table `customer`
 --
 ALTER TABLE `customer`
-  ADD PRIMARY KEY (`CustomerID`);
+  ADD PRIMARY KEY (`cus_id`);
 
 --
 -- Index pour la table `employee`
@@ -289,7 +300,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT pour la table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `employee`
