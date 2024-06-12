@@ -772,7 +772,7 @@ public class sales extends javax.swing.JPanel {
          String name=jComboBox1.getSelectedItem().toString();
          try{
              Statement s = db.mycon().createStatement();
-             ResultSet rs=s.executeQuery("SELECT cid,customer_name FROM customer WHERE customer_name='"+name+"')");
+             ResultSet rs=s.executeQuery("SELECT cid,customer_name FROM customer WHERE Name='"+name+"')");
              
              if(rs.next()){
                  cus_id =(rs.getString("cid"));
