@@ -55,10 +55,6 @@
 	</background>
 	<title>
 		<band height="70" splitType="Stretch">
-			<image>
-				<reportElement x="263" y="0" width="257" height="64" uuid="ea5ad761-92e5-4024-9d51-efba4363bb54"/>
-				<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="91f5fe7f-a65f-46a3-81ae-30f2d82c45a2"/>
 				<textElement verticalAlignment="Middle"/>

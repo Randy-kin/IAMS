@@ -140,8 +140,8 @@ public class reports extends javax.swing.JPanel {
             JasperPrint jp = JasperFillManager.fillReport(jr,null,con);
             JasperViewer.viewReport(jp,false);
 
-        }catch(Exception ex){
-            System.out.println(ex);
+        }catch(Exception e){
+            System.out.println(e);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -174,8 +174,8 @@ public class reports extends javax.swing.JPanel {
           
           
           
-         }catch(Exception ex){
-             System.out.println(ex);
+         }catch(Exception e){
+             System.out.println(e);
          }
         
     }//GEN-LAST:event_jButton6ActionPerformed
