@@ -953,7 +953,7 @@
                               <Component id="jButton5" alignment="0" max="32767" attributes="0"/>
                               <Component id="cid" alignment="1" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="793" max="32767" attributes="0"/>
+                          <EmptySpace pref="944" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
