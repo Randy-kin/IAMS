@@ -38,12 +38,12 @@ import java.sql.DriverManager;
  *
  * @author Randy_PC
  */
-public class reports extends javax.swing.JPanel {
+public class reports1 extends javax.swing.JPanel {
 
     /**
      * Creates new form reports
      */
-    public reports() {
+    public reports1() {
         initComponents();
     }
 
