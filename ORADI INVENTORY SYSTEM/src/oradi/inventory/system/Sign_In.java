@@ -42,6 +42,11 @@ public class Sign_In extends javax.swing.JFrame {
         HOME homePage = new HOME();
         homePage.setVisible(true);
     }
+         private boolean isValidEmail(String email) {
+        // Simple email validation using regex
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        return email.matches(emailRegex);
+    }
 
   
     @SuppressWarnings("unchecked")
@@ -62,6 +67,7 @@ public class Sign_In extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -184,6 +190,8 @@ public class Sign_In extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 102, 102));
         jLabel7.setText("PassWord");
 
+        jLabel4.setText("                                          ");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -209,13 +217,19 @@ public class Sign_In extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(97, 97, 97))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(184, 184, 184)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(139, 139, 139)
                 .addComponent(jLabel1)
-                .addGap(52, 52, 52)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -276,6 +290,15 @@ public class Sign_In extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+         String email = jTextField1.getText();
+         if (isValidEmail(email)) {
+                    System.out.println("good");
+                } else {
+                    jLabel4.setText("Invalid email address");
+                    jLabel4.setForeground(Color.RED);
+                    return;
+                }
+        
         String passDb = null;
         String query;
        // String email = jTextField1.getText();
@@ -304,7 +327,7 @@ public class Sign_In extends javax.swing.JFrame {
            }else if("".equals(jPasswordField1.getText())){
                  JOptionPane.showMessageDialog(this,"Password Required ","try again",JOptionPane.ERROR_MESSAGE);
            }else{
-            String  email = jTextField1.getText();
+            
             String  passw = jPasswordField1.getText(); 
              
              query = "SELECT * FROM user WHERE Email = '"+email+"'";
@@ -408,6 +431,7 @@ public class Sign_In extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

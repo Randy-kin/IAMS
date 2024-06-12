@@ -104,9 +104,9 @@ public class reports extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(92, 92, 92)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -126,7 +126,7 @@ public class reports extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
           try {
-             ReportView r = new ReportView("C:\\Users\\Randy_PC\\JaspersoftWorkspace\\MyReports\\inidreportt");
+             ReportView r = new ReportView("C:\\Users\\Randy_PC\\Documents\\NetBeansProjects\\Inventory_app\\ORADI INVENTORY SYSTEM\\src\\reports\\inidreport.jrxml");
               r.setVisible(true);
             
           }catch(Exception e){

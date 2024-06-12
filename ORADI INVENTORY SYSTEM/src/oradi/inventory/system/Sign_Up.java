@@ -5,9 +5,19 @@
 package oradi.inventory.system;
 
 import java.awt.Color;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.sql.Statement;
+import java.awt.Color;
+import java.sql.Connection;
+import java.sql.*;
+import java.sql.DriverManager;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import java.awt.*;
+import javax.swing.JFrame;
+import java.sql.ResultSet;
 
 /**
  *
@@ -39,6 +49,11 @@ public class Sign_Up extends javax.swing.JFrame {
         HOME homePage = new HOME();
         homePage.setVisible(true);
     }
+     private boolean isValidEmail(String email) {
+        // Simple email validation using regex
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        return email.matches(emailRegex);
+    }
      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -62,6 +77,7 @@ public class Sign_Up extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -224,6 +240,8 @@ public class Sign_Up extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 102, 102));
         jLabel7.setText("Email");
 
+        jLabel11.setText("                                 ");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -245,21 +263,27 @@ public class Sign_Up extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(205, 205, 205))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(112, 112, 112)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel3)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(205, 205, 205))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(112, 112, 112))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(149, 149, 149))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(82, 82, 82)
                 .addComponent(jLabel1)
-                .addGap(43, 43, 43)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -315,7 +339,7 @@ public class Sign_Up extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String UserName = jTextField1.getText();
+          String UserName = jTextField1.getText();
         String email = jTextField5.getText();
         String passw = String.valueOf(jTextField4.getText());
         String conpass = String.valueOf(jTextField3.getText());
@@ -336,12 +360,51 @@ public class Sign_Up extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
-         
-         try {
+        
+                if (isValidEmail(email)) {
+                    System.out.println("good");
+                } else {
+                    jLabel11.setText("Invalid email address");
+                    jLabel11.setForeground(Color.RED);
+                    return;
+                }
+                
+           String passDb = null;
+        String query;
+         String SUrl = "jdbc:mysql://localhost/store";
+        String SUser = "root";
+        String SPass = "";
+        int notFound = 0;
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+           Connection con = DriverManager.getConnection(SUrl,SUser,SPass);
+           Statement st = con.createStatement();
+        
+            
+             
+             query = "SELECT * FROM user WHERE Email = '"+email+"'";
+             ResultSet rs = st.executeQuery(query); 
+             while(rs.next()){
+                passDb =  rs.getString("Name" );
+                 notFound = 1;
+                 
+             }
+             if (notFound == 1 || UserName.equals(passDb)){
+                 
+                  jLabel11.setText("email or username already used");
+                    jLabel11.setForeground(Color.RED);
+                    return;
+               
+                 
+                 
+             }else{
+               System.out.println("good");
+               try {
              
              Statement s = db.mycon().createStatement();
               s.executeUpdate("INSERT INTO user(Name,Email,Password) VALUES('"+UserName+"','"+email+"','"+passw+"')");
-               JOptionPane.showMessageDialog(null,"Data Saved");
+               //JOptionPane.showMessageDialog(null,"Data Saved");
                 openHomePage();
              
          }catch(Exception e){
@@ -352,6 +415,17 @@ public class Sign_Up extends javax.swing.JFrame {
         jTextField4.setText("");
         jTextField3.setText("");
         
+                 
+             }
+            
+           }catch (Exception e){
+                System.out.println(e);
+           }
+       
+        
+       
+         
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -412,6 +486,8 @@ public class Sign_Up extends javax.swing.JFrame {
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
+          
+            
         
         
     }//GEN-LAST:event_jTextField5ActionPerformed
@@ -469,6 +545,7 @@ public class Sign_Up extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

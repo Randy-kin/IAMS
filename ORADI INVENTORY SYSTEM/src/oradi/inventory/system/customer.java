@@ -6,13 +6,24 @@
 package oradi.inventory.system;
 
 import java.awt.HeadlessException;
+import java.io.File;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 /**
  *
@@ -872,20 +883,59 @@ public class customer extends javax.swing.JPanel {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // Open All Customers
+         Connection con=null;
         
-     /*   ReportView r = new ReportView("src\\reports\\aLLCus.jasper");
-        r.setVisible(true);*/
-        
+        try{
+          
+          Class.forName("com.mysql.cj.jdbc.Driver");
+          con = DriverManager.getConnection("jdbc:mysql://localhost/store","root","");
+          
+          
+          
+          File f = new File("C:\\Users\\Randy_PC\\Documents\\NetBeansProjects\\Inventory_app\\ORADI INVENTORY SYSTEM\\src\\oradi\\reports\\AllCustomerr.jrxml");
+          JasperReport jr = JasperCompileManager.compileReport(f.getAbsolutePath());
+          JasperPrint jp = JasperFillManager.fillReport(jr,null,con);
+          JasperViewer.viewReport(jp,false);
+          
+          
+          
+         }catch(Exception ex){
+             System.out.println(ex);
+         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // serch customer for id
+         Connection con = null;
+       try {
+              HashMap para = new HashMap();
+             para.put("ParaID", cid.getText());
         
-     /*   HashMap para = new HashMap();
-        para.put("Para_cid", cid.getText());
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/store","root","");
+          
+          
+
+          File f = new File("C:\\Users\\Randy_PC\\Documents\\NetBeansProjects\\Inventory_app\\ORADI INVENTORY SYSTEM\\src\\oradi\\reports\\IDCustomerr.jrxml");
+          JasperReport jr = JasperCompileManager.compileReport(f.getAbsolutePath());
+          JasperPrint jp = JasperFillManager.fillReport(jr,para,con);
+          JasperViewer.viewReport(jp,false);
+          
+        }catch(Exception ex){
+            System.out.println(ex);
+      
+        }
+      /* HashMap para = new HashMap();
+        para.put("paraID", cid.getText());
         
-        ReportView r = new ReportView("src\\reports\\CIDCustomers.jasper", para);
-        r.setVisible(true);*/
+        try {
+            ReportView r = new ReportView("C:\\Users\\Randy_PC\\Documents\\NetBeansProjects\\Inventory_app\\ORADI INVENTORY SYSTEM\\src\\oradi\\reports\\IDCustomerr.jrxml", para);
+        } catch (Exception ex) {
+            Logger.getLogger(customer.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+      
+        
+      
         
         
         
