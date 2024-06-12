@@ -30,6 +30,16 @@ public class Sign_Up extends javax.swing.JFrame {
         Sign_In signupPage = new Sign_In();
         signupPage.setVisible(true);
     }
+    
+     private void openHomePage() {
+        // Dispose the current frame
+        this.dispose();
+        
+        // Open the Signup Page
+        HOME homePage = new HOME();
+        homePage.setVisible(true);
+    }
+     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -332,7 +342,7 @@ public class Sign_Up extends javax.swing.JFrame {
              Statement s = db.mycon().createStatement();
               s.executeUpdate("INSERT INTO user(Name,Email,Password) VALUES('"+UserName+"','"+email+"','"+passw+"')");
                JOptionPane.showMessageDialog(null,"Data Saved");
-            
+                openHomePage();
              
          }catch(Exception e){
               System.out.println(e);
@@ -402,6 +412,8 @@ public class Sign_Up extends javax.swing.JFrame {
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked

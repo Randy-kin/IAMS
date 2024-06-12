@@ -21,11 +21,8 @@ public class HOME extends javax.swing.JFrame {
     private void initComponents() {
 
         Home_btn_grp = new javax.swing.ButtonGroup();
-
-        jToggleButton7 = new javax.swing.JToggleButton();
-
+        jToggleButton10 = new javax.swing.JToggleButton();
         jMenuItem6 = new javax.swing.JMenuItem();
-
         jPanel1 = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
@@ -33,6 +30,7 @@ public class HOME extends javax.swing.JFrame {
         jToggleButton4 = new javax.swing.JToggleButton();
         jToggleButton5 = new javax.swing.JToggleButton();
         jToggleButton6 = new javax.swing.JToggleButton();
+        jToggleButton7 = new javax.swing.JToggleButton();
         jToggleButton8 = new javax.swing.JToggleButton();
         jToggleButton9 = new javax.swing.JToggleButton();
         panel_load = new javax.swing.JPanel();
@@ -48,17 +46,17 @@ public class HOME extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
 
-        jMenuItem6.setText("jMenuItem6");
-
-        Home_btn_grp.add(jToggleButton7);
-        jToggleButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jToggleButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/customer.png"))); // NOI18N
-        jToggleButton7.setText("CUSTOMERS");
-        jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
+        Home_btn_grp.add(jToggleButton10);
+        jToggleButton10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jToggleButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/customer.png"))); // NOI18N
+        jToggleButton10.setText("CUSTOMERS");
+        jToggleButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton7ActionPerformed(evt);
             }
         });
+
+        jMenuItem6.setText("jMenuItem6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,7 +122,6 @@ public class HOME extends javax.swing.JFrame {
             }
         });
 
-
         Home_btn_grp.add(jToggleButton7);
         jToggleButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jToggleButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/customer.png"))); // NOI18N
@@ -134,7 +131,6 @@ public class HOME extends javax.swing.JFrame {
                 jToggleButton7ActionPerformed(evt);
             }
         });
-
 
         Home_btn_grp.add(jToggleButton8);
         jToggleButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -201,7 +197,7 @@ public class HOME extends javax.swing.JFrame {
         panel_load.setLayout(panel_loadLayout);
         panel_loadLayout.setHorizontalGroup(
             panel_loadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1251, Short.MAX_VALUE)
+            .addGap(0, 1347, Short.MAX_VALUE)
         );
         panel_loadLayout.setVerticalGroup(
             panel_loadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -399,6 +395,7 @@ public class HOME extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton4;
