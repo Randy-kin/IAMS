@@ -126,7 +126,7 @@ public class reports extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
           try {
-             ReportView r = new ReportView("C:\\Users\\Randy_PC\\JaspersoftWorkspace\\MyReports\\Leaf_Red_7.Jrxml");
+             ReportView r = new ReportView("C:\\Users\\Randy_PC\\JaspersoftWorkspace\\MyReports\\inidreportt");
               r.setVisible(true);
             
           }catch(Exception e){
