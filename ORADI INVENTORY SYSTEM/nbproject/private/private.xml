@@ -3,7 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/reports.java</file>
+<<<<<<< HEAD
             <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/db.java</file>
             <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/Sign_Up.java</file>
             <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/store%20(2).sql</file>
@@ -18,7 +20,25 @@
             <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/ORADIINVENTORYSYSTEM.java</file>
             <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/HOME.java</file>
             <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/ReportView.java</file>
+=======
+            <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/customer.java</file>
+            <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/db.java</file>
+            <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/ORADIINVENTORYSYSTEM.java</file>
+            <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/HOME.java</file>
+            <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/store%20(2).sql</file>
+            <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/invoice.java</file>
+            <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/product.java</file>
+            <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/supplier.java</file>
+            <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/ReportView.java</file>
+            <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/MyReports/Leaf_Red_7.jrxml</file>
+>>>>>>> c161fc8 (checking loading)
             <file>file:/C:/Users/Randy_PC/Documents/NetBeansProjects/Inventory_app/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/sales.java</file>
+=======
+            <file>file:/C:/Users/libby/OneDrive/Documents/NetBeansProjects/IAMS/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/sales.java</file>
+            <file>file:/C:/Users/libby/OneDrive/Documents/NetBeansProjects/IAMS/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/product.java</file>
+            <file>file:/C:/Users/libby/OneDrive/Documents/NetBeansProjects/IAMS/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/HOME.java</file>
+            <file>file:/C:/Users/libby/OneDrive/Documents/NetBeansProjects/IAMS/ORADI%20INVENTORY%20SYSTEM/src/oradi/inventory/system/Grn.java</file>
+>>>>>>> 1a83bdce34295048a79aef5dd8c482c00135ad09
         </group>
     </open-files>
 </project-private>
