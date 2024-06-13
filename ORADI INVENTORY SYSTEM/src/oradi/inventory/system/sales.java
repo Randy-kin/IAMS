@@ -949,9 +949,9 @@ public class sales extends javax.swing.JPanel {
         try{
             
             Statement s = db.mycon().createStatement();
-            ResultSet rs=s.executeQuery("SELECT Price ,Bar_code FROM product WHERE Product_name='"+name+"'");
+            ResultSet rs=s.executeQuery("SELECT Buying_Price ,Bar_code FROM product WHERE Product_name='"+name+"'");
             if(rs.next()){
-                jLabel7.setText(rs.getString("Price"));
+                jLabel7.setText(rs.getString("Buying_Price"));
                 jLabel22.setText(rs.getString("Bar_code"));
                 
             }
@@ -1018,6 +1018,10 @@ public class sales extends javax.swing.JPanel {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        if(jTextField1.getText().isEmpty()|| jComboBox2.getSelectedItem().toString().isEmpty() || jComboBox1.getSelectedItem().toString().isEmpty()  ||jTextField4.getText().isEmpty()  ||jTextField5.getText().isEmpty()  ||jTextField6.getText().isEmpty()  || jTextField2.getText().isEmpty()  || jTextField7.getText().isEmpty()  || jComboBox3.getSelectedItem().toString().isEmpty()){ 
+             JOptionPane.showMessageDialog(this, "Please enter all field ","Try again",JOptionPane.ERROR_MESSAGE);
+             return;
+        }
         
         try{
             DefaultTableModel dt=(DefaultTableModel)jTable1.getModel();
@@ -1104,11 +1108,11 @@ public class sales extends javax.swing.JPanel {
          String name=jComboBox1.getSelectedItem().toString();
          try{
              Statement s = db.mycon().createStatement();
-             ResultSet rs=s.executeQuery("SELECT cid,customer_name,City FROM customer WHERE customer_name='"+name+"')");
+             ResultSet rs=s.executeQuery("SELECT CustomerID,Name,city FROM customer WHERE  Name ='"+name+"')");
              
              if(rs.next()){
-                 cus_id =(rs.getString("cid"));
-                 jLabel19.setText(rs.getString("City"));
+                 cus_id =(rs.getString("CustomerID"));
+                 jLabel19.setText(rs.getString("city"));
                    
              }
              
@@ -1136,9 +1140,9 @@ public class sales extends javax.swing.JPanel {
         try{
             
             Statement s = db.mycon().createStatement();
-            ResultSet rs=s.executeQuery("SELECT Price ,Bar_code,Product_name FROM product WHERE Bar_code='"+barcode+"'");
+            ResultSet rs=s.executeQuery("SELECT Buying_Price ,Bar_code,Product_name FROM product WHERE Bar_code='"+barcode+"'");
             if(rs.next()){
-                jLabel7.setText(rs.getString("Price"));
+                jLabel7.setText(rs.getString("Buying_Price"));
                 jLabel22.setText(rs.getString("Bar_code"));
                 
                 Vector v=new Vector();
