@@ -386,7 +386,7 @@ public class HOME extends javax.swing.JFrame {
 
     private void jToggleButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton12ActionPerformed
         // TODO add your handling code here:
-        email em = new email();
+        email1 em = new email1();
         Jpload.jPanelLoader(panel_load, em);
     }//GEN-LAST:event_jToggleButton12ActionPerformed
 

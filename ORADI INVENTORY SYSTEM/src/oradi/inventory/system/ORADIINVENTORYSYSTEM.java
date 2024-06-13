@@ -18,6 +18,11 @@ public class ORADIINVENTORYSYSTEM {
     
     
     public static void main(String[] args) {
+        
+        HOME home =new HOME();
+        home.setVisible(true);
+        home.pack();
+        home.setLocationRelativeTo(null);
         // TODO code application logic here
     }
  }

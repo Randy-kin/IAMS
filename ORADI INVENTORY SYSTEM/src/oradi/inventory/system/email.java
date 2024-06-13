@@ -63,19 +63,25 @@ public class email extends javax.swing.JPanel {
         properties.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.port", "465");*/
+      // final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
         Properties props = new Properties();
 
 
     props.put("mail.smtp.host", host);
-    props.put("mail.smtp.socketFactory.port", "465");
-    props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLsocketFactory");
+    props.put("mail.smtp.socketFactory.port", "587");
+   // props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLsocketFactory");
     props.put("mail.smtp.auth", "true");
-    props.put("mail.smtp.port", "465");
+    props.put("mail.smtp.port", "587");
     props.put("mail.smtp.starttls.enable", "true"); 
-    props.put("mail.smtp.ssl.trust", host);
-    props.put("mail.smtp.socketFactory.fallback", "true");
-    props.put("mail.smtp.ssl.socketFactory", "true");
-    props.put("mail.smtp.EnableSSL.enable","true");
+   // props.put("mail.smtp.ssl.trust", host);
+   // props.put("mail.smtp.socketFactory.fallback", "true");
+    //props.put("mail.smtp.ssl.socketFactory", "true");
+  //  props.put("mail.smtp.EnableSSL.enable","true");
+    props.put("mail.transport.protocol","smtp");
+     props.put("mail.store.protocol","pop3");
+    // props.put("mail.smtp.socketFactory.class",SSL_FACTORY);
+     props.put("mail.smtp.auth", "true");
+     props.put("mail.smtp.starttls.enable", "true");
         
       
 
