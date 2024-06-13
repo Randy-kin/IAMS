@@ -892,6 +892,7 @@ public void tb_load(){
        //description
        //mf_date
        //exp_date
+       
      String name = jTextField2.getText();
      String bcode = jTextField1.getText();
      String buy_price = jTextField4.getText();     
@@ -916,6 +917,13 @@ public void tb_load(){
      //
        
        try {
+            if (jTextField2.getText().isEmpty() || jTextField1.getText().isEmpty() || jTextField4.getText().isEmpty() || jTextField11.getText().isEmpty()  || jTextField15.getText().isEmpty() ||
+                    jTextField12.getText().isEmpty() || jTextField13.getText().isEmpty() || jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty() ||  jTextField14.getText().isEmpty() ||jTextArea1.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Please enter all fields","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+                 
+                  
+             }
            
             Statement s= db.mycon().createStatement();
             s.executeUpdate("INSERT INTO product(Product_name,Bar_code,Buying_Price,Selling_Price,Qty,default_unit,default_type,Category,Supplier,brand_name,Des,MF_Date,EXP_Date) VALUES('"+name+"','"+bcode+"','"+buy_price+"','"+sell_price+"','"+qty+"','"+default_unit+"','"+default_type+"','"+category+"','"+supplier+"','"+brand_name+"','"+description+"','"+mf_date+"','"+exp_date+"')");
@@ -999,6 +1007,13 @@ public void tb_load(){
      
      
      try {
+         if (jTextField2.getText().isEmpty() || jTextField1.getText().isEmpty() || jTextField4.getText().isEmpty() || jTextField11.getText().isEmpty()  || jTextField15.getText().isEmpty() ||
+                    jTextField12.getText().isEmpty() || jTextField13.getText().isEmpty() || jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty() ||  jTextField14.getText().isEmpty() ||jTextArea1.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Please enter all fields","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+                 
+                  
+             }
          
          Statement s = db.mycon().createStatement();
          
@@ -1018,6 +1033,10 @@ public void tb_load(){
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // DELETE PRODUCT btn
+        if (jTextField3.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Please enter ID","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+             } 
         String id = jTextField3.getText();
         
         try {
@@ -1092,10 +1111,17 @@ public void tb_load(){
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        
         String ID=jTextField8.getText();
         String name=jTextField9.getText();
         
         try { 
+            if (jTextField8.getText().isEmpty() || jTextField9.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Please enter all fields","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+                 
+                  
+             }
             
             Statement s = db.mycon().createStatement();
             s.executeUpdate("INSERT INTO category (Name) VALUES ('"+name+"') ");
@@ -1222,6 +1248,12 @@ public void tb_load(){
         String name=jTextField9.getText();
         
         try{
+            if (jTextField8.getText().isEmpty() || jTextField9.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Please enter all fields","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+                 
+                  
+             }
             Statement s=db.mycon().createStatement();
             s.executeUpdate("UPDATE category SET Name='"+name+"' WHERE id='"+cid+"' ");
             jTextField9.setText("");
@@ -1242,7 +1274,12 @@ public void tb_load(){
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         
         try{
-            
+            if (jTextField8.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Please enter all fields","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+                 
+                  
+             }
             Statement s=db.mycon().createStatement();
             s.executeUpdate("DELETE FROM category WHERE id='"+cid+"'");
             JOptionPane.showMessageDialog(null,"Data Deleted");

@@ -19,11 +19,17 @@ public class ORADIINVENTORYSYSTEM {
     
     public static void main(String[] args) {
         
-        HOME home =new HOME();
+        Sign_In sign =new Sign_In();
+       sign.setVisible(true);
+        sign.pack();
+        sign.setLocationRelativeTo(null);
+        
+        
+      /*  HOME home =new HOME();
         home.setVisible(true);
         home.pack();
         home.setLocationRelativeTo(null);
-        // TODO code application logic here
+        // TODO code application logic here*/
     }
  }
   

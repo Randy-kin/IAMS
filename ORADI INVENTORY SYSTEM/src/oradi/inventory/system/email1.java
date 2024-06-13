@@ -6,9 +6,6 @@ package oradi.inventory.system;
 
 import java.io.File;
 import java.util.Properties;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.*;
@@ -20,11 +17,6 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
-import javax.mail.*;
-import javax.mail.internet.*;
 
 /**
  *
@@ -79,7 +71,7 @@ public class email1 extends javax.swing.JPanel {
     properties.put("mail.smtp.host", host);
     properties.put("mail.smtp.port", "587");
 
-    Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+   /* Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
         @Override
         protected PasswordAuthentication getPasswordAuthentication() {
             return new PasswordAuthentication(username, password);
@@ -100,7 +92,7 @@ public class email1 extends javax.swing.JPanel {
     } catch (MessagingException e) {
         e.printStackTrace();
         JOptionPane.showMessageDialog(this, "Failed to send OTP. Please try again later.");
-    }
+    }*/
 }
 
      

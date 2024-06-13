@@ -5,10 +5,6 @@
 package oradi.inventory.system;
 
 import java.io.File;
-import java.util.Properties;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.*;
@@ -17,11 +13,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Properties;
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
-import javax.mail.*;
-import javax.mail.internet.*;
 
 /**
  *
@@ -86,7 +77,7 @@ public class email extends javax.swing.JPanel {
       
 
         // Create Session object
-        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+       /* Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
@@ -126,8 +117,9 @@ public class email extends javax.swing.JPanel {
         } catch (MessagingException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Failed to send email. Please try again later.");
-        }
+        }*/
     }
+       
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
