@@ -967,6 +967,15 @@ public class customer extends javax.swing.JPanel {
         String online = cp_online.getText();
 
         try {
+             if (c_name.getText().isEmpty() || c_tp.getText().isEmpty() || c_billadd.getText().isEmpty() || c_shipadd.getText().isEmpty()  || c_bank.getText().isEmpty() ||
+                    c_city.getText().isEmpty() || cp_name.getText().isEmpty() || c_person.getText().isEmpty() || cp_tp.getText().isEmpty() || cp_email.getText().isEmpty() ||cp_online.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Please enter all fields","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+                 
+                  
+             }
+                 
+
 
             Statement s = db.mycon().createStatement();
             s.executeUpdate(" INSERT INTO customer (Name,Tp_Number,billing_address,shipping_address,bank,city,person_name,CONTACT_PERSON,person_tp,email,online) "

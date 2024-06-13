@@ -14,6 +14,14 @@ public class HOME extends javax.swing.JFrame {
         this.setExtendedState(Home.MAXIMIZED_BOTH);
         
     }
+     private void openloginPage() {
+        // Dispose the current frame
+        this.dispose();
+        
+        // Open the Signup Page
+        Sign_In signupPage = new Sign_In();
+        signupPage.setVisible(true);
+    }
 
     
     @SuppressWarnings("unchecked")
@@ -33,6 +41,7 @@ public class HOME extends javax.swing.JFrame {
         jToggleButton7 = new javax.swing.JToggleButton();
         jToggleButton8 = new javax.swing.JToggleButton();
         jToggleButton9 = new javax.swing.JToggleButton();
+        jToggleButton11 = new javax.swing.JToggleButton();
         panel_load = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -152,6 +161,16 @@ public class HOME extends javax.swing.JFrame {
             }
         });
 
+        Home_btn_grp.add(jToggleButton11);
+        jToggleButton11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jToggleButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/reports.png"))); // NOI18N
+        jToggleButton11.setText("RETURN");
+        jToggleButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton11ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -166,7 +185,8 @@ public class HOME extends javax.swing.JFrame {
                     .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -188,6 +208,8 @@ public class HOME extends javax.swing.JFrame {
                 .addComponent(jToggleButton9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jToggleButton11)
                 .addContainerGap(353, Short.MAX_VALUE))
         );
 
@@ -210,7 +232,7 @@ public class HOME extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1456, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +278,7 @@ public class HOME extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -343,6 +365,11 @@ public class HOME extends javax.swing.JFrame {
         Jpload.jPanelLoader(panel_load, st);
     }//GEN-LAST:event_jToggleButton9ActionPerformed
 
+    private void jToggleButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton11ActionPerformed
+        // TODO add your handling code here:;
+        openloginPage();
+    }//GEN-LAST:event_jToggleButton11ActionPerformed
+
 
     /**
      * @param args the command line argument
@@ -396,6 +423,7 @@ public class HOME extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;
+    private javax.swing.JToggleButton jToggleButton11;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton4;
