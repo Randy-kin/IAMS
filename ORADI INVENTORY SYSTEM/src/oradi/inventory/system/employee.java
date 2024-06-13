@@ -983,7 +983,7 @@ public class employee extends javax.swing.JPanel {
              }
 
             Statement s = db.mycon().createStatement();
-            s.executeUpdate(" INSERT INTO employee (employee_name,Tp_Number,main_address,temp_address,bank,city,person_name,contact_person,person_tp,email,online) "
+            s.executeUpdate(" INSERT INTO employee (employee_name,tp_number,main_address,temp_address,bank,city,person_name,contact_person,person_tp,email,online) "
                 + "VALUES ('"+name+"','"+tp+"','"+bill_add+"','"+shipp_add+"','"+bank+"','"+city+"','"+person_name+"','"+contact_person+"','"+person_tp+"','"+email+"','"+online+"')");
 
             JOptionPane.showMessageDialog(null, "Dtata saved");
@@ -1000,6 +1000,10 @@ public class employee extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // search btn code
+        if (c_search.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Please enter ID","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+             } 
         String search = c_search.getText();
         try {
 
@@ -1031,6 +1035,11 @@ public class employee extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // update btn code
+        if (c_name.getText().isEmpty() || c_tp.getText().isEmpty() || c_billadd.getText().isEmpty() || c_shipadd.getText().isEmpty()  || c_bank.getText().isEmpty() ||
+                    c_city.getText().isEmpty() || cp_name.getText().isEmpty() || c_person.getText().isEmpty() || cp_tp.getText().isEmpty() || cp_email.getText().isEmpty() ||cp_online.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Please enter all fields","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+                 }     
 
         String id = c_search.getText();
 
@@ -1074,6 +1083,10 @@ public class employee extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //delete btn code
+         if (c_search.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Please enter ID","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+             } 
 
         String id = c_search.getText();
         try {

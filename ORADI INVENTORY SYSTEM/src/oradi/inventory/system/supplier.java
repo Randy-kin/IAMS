@@ -992,6 +992,10 @@ public class supplier extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // search btn code
+        if (c_search.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Please enter ID","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+             } 
         String search = c_search.getText();
         try {
 
@@ -1023,6 +1027,11 @@ public class supplier extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // update btn code
+        if (c_name.getText().isEmpty() || c_tp.getText().isEmpty() || c_billadd.getText().isEmpty() || c_shipadd.getText().isEmpty()  || c_bank.getText().isEmpty() ||
+                    c_city.getText().isEmpty() || cp_name.getText().isEmpty() || c_person.getText().isEmpty() || cp_tp.getText().isEmpty() || cp_email.getText().isEmpty() ||cp_online.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Please enter all fields","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+                 }
 
         String id = c_search.getText();
 
@@ -1066,7 +1075,10 @@ public class supplier extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //delete btn code
-
+ if (c_search.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Please enter ID","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+             } 
         String id = c_search.getText();
         try {
 

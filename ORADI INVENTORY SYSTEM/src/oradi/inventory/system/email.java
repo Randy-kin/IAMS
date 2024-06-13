@@ -57,20 +57,30 @@ public class email extends javax.swing.JPanel {
         String password = "dxoqnokatpqbhgkw";
 
         // Set properties
-        Properties properties = new Properties();
+       /* Properties properties = new Properties();
         properties.put("mail.smtp.host", host);
         properties.put("mail.smtp.socketFactory.port", "465");
         properties.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
         properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.port", "465");
-       /* 
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.host", host);
         properties.put("mail.smtp.port", "465");*/
+        Properties props = new Properties();
+
+
+    props.put("mail.smtp.host", host);
+    props.put("mail.smtp.socketFactory.port", "465");
+    props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLsocketFactory");
+    props.put("mail.smtp.auth", "true");
+    props.put("mail.smtp.port", "465");
+    props.put("mail.smtp.starttls.enable", "true"); 
+    props.put("mail.smtp.ssl.trust", host);
+    props.put("mail.smtp.socketFactory.fallback", "true");
+    props.put("mail.smtp.ssl.socketFactory", "true");
+    props.put("mail.smtp.EnableSSL.enable","true");
+        
+      
 
         // Create Session object
-        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
@@ -103,6 +113,7 @@ public class email extends javax.swing.JPanel {
 
             // Send message
             Transport.send(message);
+            
 
             JOptionPane.showMessageDialog(this, "Email sent successfully!");
 
