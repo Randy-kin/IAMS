@@ -4,6 +4,8 @@
  */
 package oradi.inventory.system;
 
+import raven.glasspanepopup.GlassPanePopup;
+
 
 public class HOME extends javax.swing.JFrame {
     
@@ -12,6 +14,7 @@ public class HOME extends javax.swing.JFrame {
     public HOME() {
         initComponents(); 
         this.setExtendedState(Home.MAXIMIZED_BOTH);
+        GlassPanePopup.install(this);
         
     }
      private void openloginPage() {
@@ -46,6 +49,7 @@ public class HOME extends javax.swing.JFrame {
         jToggleButton13 = new javax.swing.JToggleButton();
         panel_load = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        button1 = new oradi.inventory.system.Button();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -256,15 +260,28 @@ public class HOME extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        button1.setIcon(new javax.swing.ImageIcon("C:\\Users\\FRD\\Downloads\\icons8-notification-48.png")); // NOI18N
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 66, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -410,6 +427,11 @@ public class HOME extends javax.swing.JFrame {
         Jpload.jPanelLoader(panel_load, stock);
     }//GEN-LAST:event_jToggleButton13ActionPerformed
 
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        // TODO add your handling code here:
+        GlassPanePopup.showPopup(new Notification());
+    }//GEN-LAST:event_button1ActionPerformed
+
 
     /**
      * @param args the command line argument
@@ -448,6 +470,7 @@ public class HOME extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Home_btn_grp;
+    private oradi.inventory.system.Button button1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
