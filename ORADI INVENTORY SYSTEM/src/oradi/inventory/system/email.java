@@ -13,6 +13,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Properties;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 /**
  *
@@ -21,9 +34,7 @@ import java.util.Properties;
 public class email extends javax.swing.JPanel {
  private JFileChooser fileChooser;
     private File attachment;
-    /**
-     * Creates new form email
-     */
+   
     public email() {
         initComponents();
         fileChooser = new JFileChooser();
@@ -38,27 +49,29 @@ public class email extends javax.swing.JPanel {
         }
         String to = jTextField1.getText();
 
-        // Sender's email address
-       // String from = "sender@example.com";
+       
         String from = jTextField2.getText();
 
-        // SMTP server configuration
+       
         String host = "smtp.gmail.com";
         String username = "sahatiomela@gmail.com";
         String password = "dxoqnokatpqbhgkw";
 
         // Set properties
-       /* Properties properties = new Properties();
+        Properties properties = new Properties();
         properties.put("mail.smtp.host", host);
         properties.put("mail.smtp.socketFactory.port", "465");
         properties.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
         properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.port", "465");*/
-      // final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
-        Properties props = new Properties();
+        properties.put("mail.smtp.port", "465");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.socketFactory.fallback", "true");
+         
+       
+   //   final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
+      //  Properties props = new Properties();
 
-
-    props.put("mail.smtp.host", host);
+  /*  props.put("mail.smtp.host", host);
     props.put("mail.smtp.socketFactory.port", "587");
    // props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLsocketFactory");
     props.put("mail.smtp.auth", "true");
@@ -72,12 +85,12 @@ public class email extends javax.swing.JPanel {
      props.put("mail.store.protocol","pop3");
     // props.put("mail.smtp.socketFactory.class",SSL_FACTORY);
      props.put("mail.smtp.auth", "true");
-     props.put("mail.smtp.starttls.enable", "true");
+     props.put("mail.smtp.starttls.enable", "true");*/
         
       
 
         // Create Session object
-       /* Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
@@ -96,8 +109,9 @@ public class email extends javax.swing.JPanel {
 
             // Set Subject: header field
             message.setSubject("Email with Attachment");
+            message.setText(jTextArea1.getText());
 
-            // Attach file if selected
+           
             if (attachment != null) {
                 MimeBodyPart attachmentBodyPart = new MimeBodyPart();
                 DataSource source = new FileDataSource(attachment);
@@ -117,8 +131,63 @@ public class email extends javax.swing.JPanel {
         } catch (MessagingException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Failed to send email. Please try again later.");
-        }*/
+        }
     }
+       private void sendEmail1() {
+        String senderEmail = jTextField2.getText();
+        String senderPassword = jTextField2.getText();
+        String recipientEmail = "tiomelarandy@gmail.com";
+        
+        String body = jTextArea1.getText();
+
+        // SMTP server settings (for Gmail)
+        String smtpServer = "smtp.gmail.com";
+        int smtpPort = 587;
+
+        // Email configuration
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", smtpServer);
+        props.put("mail.smtp.port", smtpPort);
+        props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+        //props.put("mail.smtp.ssl.protocols", "TLSv1.2");
+
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(senderEmail, senderPassword);
+            }
+        });
+
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(senderEmail));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
+          message.setSubject("Email with Attachment");
+              message.setText(body);
+              
+                          if (attachment != null) {
+                MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+                DataSource source = new FileDataSource(attachment);
+                attachmentBodyPart.setDataHandler(new DataHandler(source));
+                attachmentBodyPart.setFileName(attachment.getName());
+                Multipart multipart = new MimeMultipart();
+                multipart.addBodyPart(attachmentBodyPart);
+                message.setContent(multipart);
+            }
+
+            Transport.send(message);
+
+            JOptionPane.showMessageDialog(this, "Email sent successfully!", "Info", JOptionPane.INFORMATION_MESSAGE);
+        } catch (MessagingException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error sending email: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    
+}
+    
+    
        
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -160,7 +229,7 @@ public class email extends javax.swing.JPanel {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText(" Receiver Email address :");
+        jLabel2.setText(" Sender Password :");
 
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -212,24 +281,22 @@ public class email extends javax.swing.JPanel {
                         .addGap(131, 131, 131)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jScrollPane1))))))
-                .addGap(121, 121, 121))
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jTextField2)
+                            .addComponent(jScrollPane1))))
+                .addGap(84, 84, 84))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,7 +329,7 @@ public class email extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 4, Short.MAX_VALUE))
+                        .addGap(0, 40, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -297,7 +364,7 @@ public class email extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         sendEmail();
+        sendEmail1();
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

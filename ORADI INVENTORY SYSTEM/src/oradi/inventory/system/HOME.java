@@ -4,10 +4,17 @@
  */
 package oradi.inventory.system;
 
+import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.net.URL;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 
 public class HOME extends javax.swing.JFrame {
     
-    JpanelLoader Jpload = new JpanelLoader();  
+    JpanelLoader Jpload = new JpanelLoader();
+ 
     
     public HOME() {
         initComponents(); 
@@ -22,7 +29,8 @@ public class HOME extends javax.swing.JFrame {
         Sign_In signupPage = new Sign_In();
         signupPage.setVisible(true);
     }
-
+    
+      
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -45,6 +53,7 @@ public class HOME extends javax.swing.JFrame {
         jToggleButton12 = new javax.swing.JToggleButton();
         jToggleButton13 = new javax.swing.JToggleButton();
         panel_load = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -74,7 +83,7 @@ public class HOME extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         Home_btn_grp.add(jToggleButton1);
-        jToggleButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jToggleButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/supplier.png"))); // NOI18N
         jToggleButton1.setText("SUPPLIERS");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +93,7 @@ public class HOME extends javax.swing.JFrame {
         });
 
         Home_btn_grp.add(jToggleButton2);
-        jToggleButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jToggleButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/customer.png"))); // NOI18N
         jToggleButton2.setText("CUSTOMERS");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +103,7 @@ public class HOME extends javax.swing.JFrame {
         });
 
         Home_btn_grp.add(jToggleButton3);
-        jToggleButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jToggleButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/product.png"))); // NOI18N
         jToggleButton3.setText("PRODUCT");
         jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +113,7 @@ public class HOME extends javax.swing.JFrame {
         });
 
         Home_btn_grp.add(jToggleButton4);
-        jToggleButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jToggleButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jToggleButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/sales_menu.png"))); // NOI18N
         jToggleButton4.setText("SALES        ");
         jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -114,8 +123,8 @@ public class HOME extends javax.swing.JFrame {
         });
 
         Home_btn_grp.add(jToggleButton5);
-        jToggleButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jToggleButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/invo.png"))); // NOI18N
+        jToggleButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jToggleButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/OIP (1).jpg"))); // NOI18N
         jToggleButton5.setText("INVOICES");
         jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +133,7 @@ public class HOME extends javax.swing.JFrame {
         });
 
         Home_btn_grp.add(jToggleButton6);
-        jToggleButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jToggleButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jToggleButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/emp.png"))); // NOI18N
         jToggleButton6.setText("EMPLOYEE");
         jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +153,7 @@ public class HOME extends javax.swing.JFrame {
         });
 
         Home_btn_grp.add(jToggleButton8);
-        jToggleButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jToggleButton8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jToggleButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/reports.png"))); // NOI18N
         jToggleButton8.setText("REPORTS ");
         jToggleButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -154,8 +163,8 @@ public class HOME extends javax.swing.JFrame {
         });
 
         Home_btn_grp.add(jToggleButton9);
-        jToggleButton9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jToggleButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/invo.png"))); // NOI18N
+        jToggleButton9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jToggleButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/OIP.jpg"))); // NOI18N
         jToggleButton9.setText("GRN");
         jToggleButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,8 +173,8 @@ public class HOME extends javax.swing.JFrame {
         });
 
         Home_btn_grp.add(jToggleButton11);
-        jToggleButton11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jToggleButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/reports.png"))); // NOI18N
+        jToggleButton11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jToggleButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/R (3).png"))); // NOI18N
         jToggleButton11.setText("RETURN");
         jToggleButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,8 +183,8 @@ public class HOME extends javax.swing.JFrame {
         });
 
         Home_btn_grp.add(jToggleButton12);
-        jToggleButton12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jToggleButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/emp.png"))); // NOI18N
+        jToggleButton12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jToggleButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/R.png"))); // NOI18N
         jToggleButton12.setText("Email");
         jToggleButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,8 +193,8 @@ public class HOME extends javax.swing.JFrame {
         });
 
         Home_btn_grp.add(jToggleButton13);
-        jToggleButton13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jToggleButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/reports.png"))); // NOI18N
+        jToggleButton13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jToggleButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/invo.png"))); // NOI18N
         jToggleButton13.setText("STOCK");
         jToggleButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,18 +209,18 @@ public class HOME extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addComponent(jToggleButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton2)
+                    .addComponent(jToggleButton1))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,35 +232,51 @@ public class HOME extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButton6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jToggleButton12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButton9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jToggleButton13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jToggleButton11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton13)
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panel_load.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1263, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 757, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout panel_loadLayout = new javax.swing.GroupLayout(panel_load);
         panel_load.setLayout(panel_loadLayout);
         panel_loadLayout.setHorizontalGroup(
             panel_loadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1347, Short.MAX_VALUE)
+            .addGroup(panel_loadLayout.createSequentialGroup()
+                .addContainerGap(66, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panel_loadLayout.setVerticalGroup(
             panel_loadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panel_loadLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -308,9 +333,9 @@ public class HOME extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panel_load, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panel_load, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -322,7 +347,7 @@ public class HOME extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panel_load, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -400,7 +425,7 @@ public class HOME extends javax.swing.JFrame {
 
     private void jToggleButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton12ActionPerformed
         // TODO add your handling code here:
-        email1 em = new email1();
+        email em = new email();
         Jpload.jPanelLoader(panel_load, em);
     }//GEN-LAST:event_jToggleButton12ActionPerformed
 
@@ -460,6 +485,7 @@ public class HOME extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;

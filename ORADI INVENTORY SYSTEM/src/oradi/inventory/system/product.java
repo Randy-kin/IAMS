@@ -228,7 +228,6 @@ public void tb_load(){
         jLabel3.setText("Product Info :");
 
         jTextField3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField3.setText("0");
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -287,10 +286,8 @@ public void tb_load(){
         jLabel2.setText("NAME :");
 
         jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField1.setText("0");
 
         jTextField2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField2.setText("0");
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/save.png"))); // NOI18N
@@ -323,19 +320,16 @@ public void tb_load(){
         jLabel5.setText("Buying Price :");
 
         jTextField4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField4.setText("0");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel12.setText("Selling Price :");
 
         jTextField11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField11.setText("0");
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setText("Default Unit : ");
 
         jTextField12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField12.setText("0");
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel14.setText("MFD DATE :");
@@ -346,7 +340,6 @@ public void tb_load(){
         jLabel6.setText("Category :");
 
         jTextField5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField5.setText("0");
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
@@ -371,7 +364,6 @@ public void tb_load(){
         jLabel7.setText("Suppliers :");
 
         jTextField6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField6.setText("0");
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField6ActionPerformed(evt);
@@ -382,7 +374,11 @@ public void tb_load(){
         jLabel16.setText(" Brand Name: ");
 
         jTextField14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField14.setText("0");
+        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField14ActionPerformed(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel17.setText("Description:");
@@ -448,13 +444,11 @@ public void tb_load(){
         jLabel15.setText("Default Type : ");
 
         jTextField13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField13.setText("0");
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel18.setText("Qty:");
 
         jTextField15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField15.setText("0");
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel19.setText("EXP DATE:");
@@ -545,7 +539,7 @@ public void tb_load(){
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
                             .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
@@ -562,7 +556,7 @@ public void tb_load(){
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(484, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -706,7 +700,7 @@ public void tb_load(){
                     .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Search Product", jPanel6);
@@ -863,9 +857,9 @@ public void tb_load(){
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -918,7 +912,7 @@ public void tb_load(){
        
        try {
             if (jTextField2.getText().isEmpty() || jTextField1.getText().isEmpty() || jTextField4.getText().isEmpty() || jTextField11.getText().isEmpty()  || jTextField15.getText().isEmpty() ||
-                    jTextField12.getText().isEmpty() || jTextField13.getText().isEmpty() || jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty() ||  jTextField14.getText().isEmpty() ||jTextArea1.getText().isEmpty()){
+                    jTextField12.getText().isEmpty() || jTextField13.getText().isEmpty() || jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty() ||  jTextField14.getText().isEmpty() ||jTextArea1.getText().isEmpty() ){
                    JOptionPane.showMessageDialog(this, "Please enter all fields","Try again",JOptionPane.ERROR_MESSAGE);
             return;
                  
@@ -952,7 +946,7 @@ public void tb_load(){
         try {
             Statement s = db.mycon().createStatement();
             
-            ResultSet rs = s.executeQuery("SELECT * FROM product WHERE 	ID='"+search+"' ");
+            ResultSet rs = s.executeQuery("SELECT * FROM product WHERE 	ID ='"+search+"' ");
             
             if(rs.next()) {
                 jTextField2.setText(rs.getString("Product_name"));
@@ -1380,6 +1374,10 @@ public void tb_load(){
         SimpleDateFormat sdf=new  SimpleDateFormat("yyyy-mm-dd");
         String exp_date = sdf.format(jDateChooser3.getDate());
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField14ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

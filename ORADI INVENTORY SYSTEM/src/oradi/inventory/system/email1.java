@@ -4,19 +4,15 @@
  */
 package oradi.inventory.system;
 
-import java.io.File;
-import java.util.Properties;
-import javax.swing.JFileChooser;
+
 import javax.swing.JOptionPane;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.util.Properties;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.mail.*;
+import javax.mail.internet.*;
+import java.util.Properties;
+
 
 /**
  *
@@ -47,7 +43,7 @@ public class email1 extends javax.swing.JPanel {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
-    private void generateOTP() {
+    public  void generateOTP() {
     // Validate email address
     String email = jTextField1.getText();
     if (!isValidEmail(email)) {
@@ -58,42 +54,43 @@ public class email1 extends javax.swing.JPanel {
     // Implement OTP generation logic here
     Random random = new Random();
     int otp = 100000 + random.nextInt(900000); // Generate a 6-digit OTP
+    
+     
+        String host = "smtp.gmail.com";
+        String username = "sahatiomela@gmail.com";
+        String password = "dxoqnokatpqbhgkw";
+        String from = "sahatiomela@gmail.com";
 
-    // Send OTP via email
-    String host = "smtp.gmail.com";
-    String username = "sahatiomela@gmail.com";
-    String password = "dxoqnokatpqbhgkw";
-    String from = "sahatiomela@gmail.com";
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.ssl.trust",  "smtp.gmail.com");
 
-    Properties properties = new Properties();
-    properties.put("mail.smtp.auth", "true");
-    properties.put("mail.smtp.starttls.enable", "true");
-    properties.put("mail.smtp.host", host);
-    properties.put("mail.smtp.port", "587");
+        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
 
-   /* Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
-        @Override
-        protected PasswordAuthentication getPasswordAuthentication() {
-            return new PasswordAuthentication(username, password);
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            message.setSubject("OTP for Email Verification");
+            message.setText("Your OTP is: " + otp);
+
+            Transport.send(message);
+
+            JOptionPane.showMessageDialog(null, "OTP sent to your email.");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Failed to send OTP. Please try again later.");
         }
-    });
+     }
 
-    try {
-        Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress(from));
-        message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
-        message.setSubject("OTP for Email Verification");
-        message.setText("Your OTP is: " + otp);
-
-        Transport.send(message);
-
-        jTextField2.setText(String.valueOf(otp));
-        JOptionPane.showMessageDialog(this, "OTP sent to your email.");
-    } catch (MessagingException e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Failed to send OTP. Please try again later.");
-    }*/
-}
 
      
     @SuppressWarnings("unchecked")

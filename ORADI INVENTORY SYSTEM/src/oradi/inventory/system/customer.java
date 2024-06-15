@@ -6,6 +6,7 @@
 package oradi.inventory.system;
 
 import java.awt.HeadlessException;
+import java.awt.List;
 import java.io.File;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -24,6 +25,10 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.design.JRDesignExpression;
+import net.sf.jasperreports.engine.design.JRDesignVariable;
 
 /**
  *
@@ -42,6 +47,7 @@ public class customer extends javax.swing.JPanel {
         
         
     }
+    
 
   public void tb_load() {
   
@@ -892,7 +898,7 @@ public class customer extends javax.swing.JPanel {
           
           
           
-          File f = new File("C:\\Users\\Randy_PC\\Documents\\NetBeansProjects\\Inventory_app\\ORADI INVENTORY SYSTEM\\src\\oradi\\reports\\AllCustomerr.jrxml");
+          File f = new File("C:\\Users\\Randy_PC\\Documents\\NetBeansProjects\\Inventory_app\\ORADI INVENTORY SYSTEM\\src\\oradi\\reports\\Allcustomerr.jrxml");
           JasperReport jr = JasperCompileManager.compileReport(f.getAbsolutePath());
           JasperPrint jp = JasperFillManager.fillReport(jr,null,con);
           JasperViewer.viewReport(jp,false);
@@ -931,8 +937,10 @@ public class customer extends javax.swing.JPanel {
         try {
             ReportView r = new ReportView("C:\\Users\\Randy_PC\\Documents\\NetBeansProjects\\Inventory_app\\ORADI INVENTORY SYSTEM\\src\\oradi\\reports\\IDCustomerr.jrxml", para);
         } catch (Exception ex) {
-            Logger.getLogger(customer.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+            Logger.getLogger(customer.class.getName()).log(Level.SEVERE, null, ex);*/
+      
+  
+
       
         
       

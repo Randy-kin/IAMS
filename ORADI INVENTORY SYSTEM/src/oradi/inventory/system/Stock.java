@@ -89,7 +89,7 @@ public class Stock extends javax.swing.JPanel {
         String seri=jTextField3.getText();    // supplier name
          try { 
                 Statement s=db.mycon().createStatement();
-                ResultSet rs = s.executeQuery("SELECT * From product WHERE Product_name Like '%"+pname+"%' AND Supplier_Name LIKE '%"+bname+"%' AND Bar_code LIKE '"+seri+"%' ");
+                ResultSet rs = s.executeQuery("SELECT * From product WHERE Product_name Like '%"+pname+"%' AND Supplier LIKE '%"+bname+"%' AND Bar_code LIKE '"+seri+"%' ");
 
                 
                 
@@ -219,7 +219,7 @@ public class Stock extends javax.swing.JPanel {
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel5))
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,7 +271,9 @@ public class Stock extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(97, 97, 97)
@@ -332,7 +334,6 @@ public class Stock extends javax.swing.JPanel {
         });
 
         jTextField8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField8.setText("0");
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField8ActionPerformed(evt);
@@ -342,6 +343,7 @@ public class Stock extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
         jLabel10.setText("New Add/ less-Qty");
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oradi/inventory/system_img/save.png"))); // NOI18N
         jButton1.setText("SAVE");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -545,6 +547,18 @@ public class Stock extends javax.swing.JPanel {
         
         // update btn code
         
+         String BARID = jTextField5.getText();
+          String prodname =jTextField7.getText();
+           String stkqty =jTextField6.getText();
+           
+                        if (jTextField5.getText().isEmpty() || jTextField7.getText().isEmpty() || jTextField6.getText().isEmpty() ){
+                   JOptionPane.showMessageDialog(this, "Please enter all fields","Try again",JOptionPane.ERROR_MESSAGE);
+            return;
+                 
+                  
+             }
+
+         
         double newqt = Double.valueOf(jTextField8.getText());
         double oldqty = Double.valueOf(jTextField6.getText());
          

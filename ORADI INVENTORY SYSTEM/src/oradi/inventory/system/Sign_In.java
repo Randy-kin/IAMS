@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import java.awt.*;
 import javax.swing.JFrame;
 import java.sql.ResultSet;
+import javax.swing.JPanel;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Sign_In extends javax.swing.JFrame {
     /**
      * Creates new form signup
      */
+    JpanelLoader Jpload = new JpanelLoader();  
     public Sign_In() {
         initComponents();
     }
@@ -339,7 +341,7 @@ public class Sign_In extends javax.swing.JFrame {
              }
              if (notFound == 1 && passw.equals(passDb)){
                  System.out.println("successful login");
-                 openHomePage();
+               openHomePage();
                
                  
                  
